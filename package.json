@@ -1,0 +1,36 @@
+{
+  "name": "mm-record",
+  "version": "1.0.0",
+  "description": "Record resource extension for Matter In Motion",
+  "keywords": [
+    "matter",
+    "in",
+    "motion",
+    "mm",
+    "extension",
+    "resource",
+    "record"
+  ],
+  "author": "Alexey Novikov <v@2dubs.com> (http://2dubs.com)",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "uuid5": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:matter-in-motion/mm-record.git"
+  },
+  "main": "./index",
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "nyc": "^11.3.0",
+    "mm-test": "^1.0.0",
+    "mm-db-schema": "^1.0.0",
+    "mm-rethinkdb": "^1.0.0",
+    "mm-rethinkdb-schema": "^1.0.0"
+  },
+  "scripts": {
+    "test": "nyc ava"
+  }
+}
