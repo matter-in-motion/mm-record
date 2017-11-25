@@ -7,7 +7,7 @@ This extension adds a __record__ resource. `Record` resource doesn't provide any
 
 ## Usage
 
-[Extensions installation intructions](https://github.com/matter-in-motion/mm/blob/master/docs/extensions.md)
+[Extensions installation instructions](https://github.com/matter-in-motion/mm/blob/master/docs/extensions.md)
 
 ## Record
 
