@@ -25,7 +25,7 @@
   "devDependencies": {
     "ava": "^0.23.0",
     "nyc": "^11.3.0",
-    "mm-test": "^1.0.0",
+    "mm-test": "^3.0.0",
     "mm-db-schema": "^1.0.0",
     "mm-rethinkdb": "^1.0.0",
     "mm-rethinkdb-schema": "^1.0.0"
