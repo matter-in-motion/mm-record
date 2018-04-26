@@ -2,6 +2,12 @@
 const Promise = require('bluebird');
 const uuid5 = require('uuid5');
 
+const dontThrowExists = err => {
+  if (err.msg.indexOf('already exists') === -1) {
+    throw err;
+  }
+}
+
 const Controller = function() {
   this.r = null;
 };
@@ -12,11 +18,6 @@ Controller.prototype.schema = {
     table: 'records',
     indexes: [ 'type', 'index' ],
     apply: function(r, schema) {
-      const dontThrowExist = err => {
-        if (err.msg.indexOf('already exists') === -1) {
-          throw err;
-        }
-      }
       const table = schema.table;
       const applied = {
         tables: [],
@@ -25,19 +26,19 @@ Controller.prototype.schema = {
 
       return r.tableCreate(table).run()
         .then(() => applied.tables.push(table))
-        .catch(dontThrowExist)
+        .catch(dontThrowExists)
         .then(() => r.table(table)
           .indexCreate('type')
           .run()
         )
         .then(() => applied.indexes.push(`${table}.type`))
-        .catch(dontThrowExist)
+        .catch(dontThrowExists)
         .then(() => r.table(table)
           .indexCreate('index', [ r.row('type'), r.row('sid'), r.row('ts') ])
           .run()
         )
         .then(() => applied.indexes.push(`${table}.index`))
-        .catch(dontThrowExist)
+        .catch(dontThrowExists)
         .then(() => applied);
     }
   }
